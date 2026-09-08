@@ -1,44 +1,38 @@
+import { ArrowRight, Award, CalendarDays, Check, Clock3, Facebook, Instagram, MapPin, Menu, MessageCircle, Phone, Play, ShieldCheck, Sparkles, Star, Stethoscope, Users, Youtube } from 'lucide-react'
+
+const services = [
+  { icon: 'tooth', title: 'Odontología\nGeneral', text: 'Prevención, diagnóstico y tratamiento para toda la familia.' },
+  { icon: 'implant', title: 'Implantes\nDentales', text: 'Recupera tu sonrisa y funcionalidad con la máxima seguridad.' },
+  { icon: 'braces', title: 'Ortodoncia\nAvanzada', text: 'Alineamos tu sonrisa con tecnología discreta y efectiva.' },
+  { icon: 'shine', title: 'Blanqueamiento\nDental', text: 'Luce una sonrisa más blanca, brillante y natural.' },
+  { icon: 'veneer', title: 'Carillas\nDentales', text: 'Mejora la forma, color y armonía de tu sonrisa con carillas.' },
+  { icon: 'root', title: 'Endodoncia', text: 'Tratamientos precisos para salvar y conservar tus dientes.' },
+]
+
+function ToothIcon({ variant = 'tooth' }: { variant?: string }) {
+  return <div className={`tooth-icon ${variant}`} aria-hidden="true"><span className="tooth-shape" />{variant === 'implant' && <span className="implant-line" />}{variant === 'braces' && <span className="braces-line">•••</span>}{variant === 'shine' && <Sparkles size={18} className="spark" />}{variant === 'root' && <span className="search-ring" />}</div>
+}
+
+function ClinicArt({ type, label }: { type: string; label: string }) {
+  return <div className={`clinic-art ${type}`} role="img" aria-label={label}>
+    {type === 'reception' && <><div className="marble-desk"/><div className="clinic-sign">Sonrisas que<br/>transforman vidas</div><div className="plant p-one"/><div className="plant p-two"/></>}
+    {type === 'surgery' && <><div className="lamp"/><div className="chair"/><div className="cabinet"/><div className="screen"/></>}
+    {type === 'lounge' && <><div className="art-frame"/><div className="sofa"/><div className="round-table"/><div className="plant p-one"/></>}
+    {type === 'doctor' && <><div className="doctor-person"><Stethoscope/></div><div className="patient-shape"/><div className="procedure-light"/></>}
+    {type === 'consult' && <><div className="consult-person one"/><div className="consult-person two"/><div className="consult-desk"/><div className="consult-screen"/></>}
+    {type === 'sterile' && <><div className="sterile-unit"><div className="unit-window"/></div><div className="counter"/><div className="shelf"/></>}
+  </div>
+}
+
 export default function Home() {
-  return (
-    <div>
-      <header style={{background:'#FFFFFF',color:'white',padding:'20px 40px',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-        <span style={{fontSize:'1.5rem',fontWeight:'bold'}}>Project 1788850072089</span>
-        <nav style={{display:'flex',gap:'20px'}}>
-          <a href="#nav_sticky" style={{color:'white',textDecoration:'none'}}>nav_sticky</a>
-          <a href="#hero_split" style={{color:'white',textDecoration:'none'}}>hero_split</a>
-          <a href="#stats_banner" style={{color:'white',textDecoration:'none'}}>stats_banner</a>
-          <a href="#services_cards" style={{color:'white',textDecoration:'none'}}>services_cards</a>
-          <a href="#gallery_grid" style={{color:'white',textDecoration:'none'}}>gallery_grid</a>
-        </nav>
-      </header>
-      <section style={{background:'#FFFFFF',color:'white',padding:'100px 40px',textAlign:'center'}}>
-        <h1 style={{fontSize:'3rem',fontWeight:'800',marginBottom:'20px'}}>Project 1788850072089</h1>
-        <p style={{fontSize:'1.2rem',opacity:0.85,maxWidth:'600px',margin:'0 auto 40px'}}>DentalBright is a premium yet approachable dental clinic website for Spanish-speaking markets, combining cosmetic and general dentistry services with transparent treatment plans, social proof, and seamless online appointment booking. The experience emphasizes advanced technology, experienced practitioners, patient trust, and instant email confirmations.</p>
-        <a href="#contact" style={{background:'#00A8A8',color:'white',padding:'16px 32px',borderRadius:'50px',textDecoration:'none',fontWeight:'bold',display:'inline-block'}}>Get In Touch</a>
-      </section>
-      <section id="nav_sticky" style={{padding:'80px 40px',textAlign:'center'}}>
-        <h2 style={{fontSize:'2rem',fontWeight:'700',marginBottom:'16px',color:'#FFFFFF'}}>nav_sticky</h2>
-        <p style={{color:'#666',maxWidth:'500px',margin:'0 auto'}}>Contact us to learn more about our nav_sticky offerings.</p>
-      </section>
-      <section id="hero_split" style={{padding:'80px 40px',textAlign:'center'}}>
-        <h2 style={{fontSize:'2rem',fontWeight:'700',marginBottom:'16px',color:'#FFFFFF'}}>hero_split</h2>
-        <p style={{color:'#666',maxWidth:'500px',margin:'0 auto'}}>Contact us to learn more about our hero_split offerings.</p>
-      </section>
-      <section id="stats_banner" style={{padding:'80px 40px',textAlign:'center'}}>
-        <h2 style={{fontSize:'2rem',fontWeight:'700',marginBottom:'16px',color:'#FFFFFF'}}>stats_banner</h2>
-        <p style={{color:'#666',maxWidth:'500px',margin:'0 auto'}}>Contact us to learn more about our stats_banner offerings.</p>
-      </section>
-      <section id="services_cards" style={{padding:'80px 40px',textAlign:'center'}}>
-        <h2 style={{fontSize:'2rem',fontWeight:'700',marginBottom:'16px',color:'#FFFFFF'}}>services_cards</h2>
-        <p style={{color:'#666',maxWidth:'500px',margin:'0 auto'}}>Contact us to learn more about our services_cards offerings.</p>
-      </section>
-      <section id="gallery_grid" style={{padding:'80px 40px',textAlign:'center'}}>
-        <h2 style={{fontSize:'2rem',fontWeight:'700',marginBottom:'16px',color:'#FFFFFF'}}>gallery_grid</h2>
-        <p style={{color:'#666',maxWidth:'500px',margin:'0 auto'}}>Contact us to learn more about our gallery_grid offerings.</p>
-      </section>
-      <footer style={{background:'#FFFFFF',color:'white',padding:'30px',textAlign:'center'}}>
-        <p>Copyright 2026 Project 1788850072089. All rights reserved.</p>
-      </footer>
-    </div>
-  );
+  return <main>
+    <header className="site-header"><a className="brand" href="#inicio" aria-label="DentalBright inicio"><ToothIcon/><strong>DentalBright</strong></a><nav aria-label="Navegación principal"><a className="active" href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#clinica">Sobre Nosotros</a><a href="#testimonios">Testimonios</a><a href="#contacto">Contacto</a></nav><a className="button header-cta" href="#contacto"><CalendarDays size={18}/> Agenda tu cita</a><button className="menu-button" aria-label="Abrir menú"><Menu/></button></header>
+    <section className="hero" id="inicio"><div className="hero-copy"><p className="eyebrow">ODONTOLOGÍA PREMIUM</p><h1>Sonrisas que<br/>transforman vidas</h1><p className="hero-lead">Cuidado dental avanzado con tecnología de vanguardia y un enfoque humano. Tu bienestar es nuestra prioridad.</p><div className="hero-actions"><a className="button" href="#contacto"><CalendarDays size={19}/> Agenda tu cita</a><a className="video-link" href="#clinica"><span><Play size={14} fill="currentColor"/></span> Conoce nuestra clínica</a></div><div className="social-proof"><div className="avatars"><i>AM</i><i>LR</i><i>CS</i><i>JM</i></div><div><div className="stars">{[1,2,3,4,5].map(n=><Star key={n}/>)}</div><small>Más de 1,200 pacientes satisfechos</small></div></div></div><div className="hero-visual" role="img" aria-label="Paciente sonriente durante una revisión dental"><div className="window-lines"/><div className="dental-chair"/><div className="patient"><div className="hair"/><div className="face"><span className="smile"/></div><div className="bib"/></div><div className="dentist"><div className="doctor-head"/><div className="mask"/><div className="coat"/><div className="arm"/><div className="tool"/></div></div></section>
+    <section className="stats" aria-label="Nuestros resultados"><div><Users/><strong>1,200+</strong><span>Pacientes satisfechos</span><small>Confían en nosotros</small></div><div><Award/><strong>15+</strong><span>Años de experiencia</span><small>Cuidando sonrisas</small></div><div><ToothIcon/><strong>2,500+</strong><span>Tratamientos realizados</span><small>Con éxito comprobado</small></div><div><ShieldCheck/><strong>98%</strong><span>Índice de satisfacción</span><small>Resultados que nos respaldan</small></div></section>
+    <section className="services section" id="servicios"><div className="section-heading"><p className="eyebrow">NUESTROS SERVICIOS</p><h2>Soluciones dentales integrales para ti</h2><span className="gold-line"/></div><div className="services-grid">{services.map(service => <article className="service-card" key={service.title}><ToothIcon variant={service.icon}/><h3>{service.title.split('\n').map((line,i)=><span key={line}>{line}{i===0&&<br/>}</span>)}</h3><p>{service.text}</p><a href="#contacto">Saber más <ArrowRight size={14}/></a></article>)}</div></section>
+    <section className="clinic section" id="clinica"><div className="section-heading"><p className="eyebrow">NUESTRA CLÍNICA</p><h2>Diseñada para tu comodidad y confianza</h2><p>Espacios modernos, tecnología de vanguardia y un equipo humano<br/> comprometido con tu bienestar.</p></div><div className="gallery"><ClinicArt type="reception" label="Recepción de DentalBright"/><ClinicArt type="surgery" label="Consultorio dental moderno"/><ClinicArt type="lounge" label="Sala de espera"/><ClinicArt type="doctor" label="Dentista durante un tratamiento"/><ClinicArt type="consult" label="Consulta personalizada"/><ClinicArt type="sterile" label="Equipo de esterilización"/></div></section>
+    <section className="testimonial" id="testimonios"><div className="quote-mark">“</div><blockquote>Desde que llegué me hicieron sentir tranquila. El resultado superó mis expectativas y hoy sonrío con total confianza.</blockquote><p>— Lucía R., paciente de diseño de sonrisa</p></section>
+    <section className="cta" id="contacto"><div className="cta-inner"><ToothIcon/><div><h2>Tu sonrisa merece<br/>lo mejor</h2><p>Agenda tu evaluación y da el primer paso<br/>hacia una sonrisa saludable y hermosa.</p></div><div className="cta-contact"><a className="button light" href="mailto:hola@dentalbright.mx"><CalendarDays size={18}/> Agenda tu cita</a><strong><Phone size={17}/> (55) 1234 5678</strong><small>Llámanos o escríbenos</small></div></div></section>
+    <footer><div className="footer-grid"><div className="footer-brand"><div className="brand inverse"><ToothIcon/><strong>DentalBright</strong></div><p>Clínica dental premium comprometida con tu salud, bienestar y la excelencia en cada sonrisa.</p><div className="socials"><a href="#" aria-label="Facebook"><Facebook/></a><a href="#" aria-label="Instagram"><Instagram/></a><a href="#" aria-label="WhatsApp"><MessageCircle/></a><a href="#" aria-label="YouTube"><Youtube/></a></div></div><div><h3>Enlaces rápidos</h3><a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#clinica">Sobre Nosotros</a><a href="#testimonios">Testimonios</a><a href="#contacto">Contacto</a></div><div><h3>Servicios</h3>{services.map(s=><a href="#servicios" key={s.title}>{s.title.replace('\n',' ')}</a>)}</div><div><h3>Información</h3><p><MapPin/> Av. Insurgentes Sur 1234<br/>Col. Del Valle, CDMX</p><p><Phone/> (55) 1234 5678</p><p><Clock3/> Lun–Vie: 9:00 am – 7:00 pm<br/>Sáb: 9:00 am – 2:00 pm</p></div><div><h3>Certificaciones</h3><p className="cert"><Check/> Asociación Dental Mexicana</p><p className="cert"><Check/> Consejo Mexicano de Odontología</p></div></div><div className="copyright"><span>© 2026 DentalBright. Todos los derechos reservados.</span><span>Aviso de Privacidad　 Términos y Condiciones</span></div></footer>
+  </main>
 }
